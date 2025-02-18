@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: main-service
+          # если без Eureka, то указываем адрес:
+          uri: http://localhost:8082
+          # если Eureka, то можно uri: lb://MAIN-SERVICE
+          predicates:
+            - Path=/main/**
+          # Фильтр можно указать прямо здесь (GatewayFilter),
+          # но мы сделаем глобальный (GlobalFilter) на все маршруты
+
+# Если Eureka (необязательно):
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
