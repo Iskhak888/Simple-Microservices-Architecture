@@ -1,11 +1,4 @@
+server:
+    port: 8081
+
 spring:
-  cloud:
-    gateway:
-      routes:
-        - id: main-service
-          uri: http://localhost:8081  # или lb://MAIN-SERVICE (если Eureka)
-          predicates:
-            - Path=/main/**  # если запрос /main/... -> этот маршрут
-          filters:
-            # Можно объявить фильтры
-            - name: JwtFilter  # кастомный фильтр, если объявлен как bean

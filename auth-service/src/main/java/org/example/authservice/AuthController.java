@@ -1,10 +1,10 @@
 package org.example.authservice;
 
-import org.example.authservice.AuthRequest;
-import org.example.authservice.AuthResponse;
-import org.example.authservice.JwtUtil;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
@@ -18,6 +18,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request) {
+        System.out.println("rabotaet");
         // 1) Проверить логин/пароль (для примера - хардкод)
         if ("admin".equals(request.getUsername()) && "123".equals(request.getPassword())) {
             // 2) Генерируем токен

@@ -23,6 +23,5 @@ public class JwtUtil {
                 .compact();
     }
 
-    // Если нужно validateToken - можно добавить метод тут:
-    //   public boolean validateToken(String token) {...}
+    // нужно validateToken
 }
