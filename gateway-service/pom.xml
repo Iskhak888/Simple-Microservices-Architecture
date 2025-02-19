@@ -48,13 +48,6 @@
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
-        <!-- (Опционально) Eureka client, если используете Discovery -->
-        <!--
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-        -->
 
         <!-- JJWT, если хотите парсить токены локально -->
         <dependency>

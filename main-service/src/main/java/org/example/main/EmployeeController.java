@@ -1,21 +1,31 @@
 package org.example.main;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.example.main.Employee;
+import org.example.main.EmployeeRepository;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequestMapping("/employees")
 public class EmployeeController {
 
-    @GetMapping("/public/hello")
-    public String hello() {
-        return "Hello, this is a public endpoint!";
+    private final EmployeeRepository employeeRepo;
+
+    public EmployeeController(EmployeeRepository employeeRepo) {
+        this.employeeRepo = employeeRepo;
     }
 
-    @GetMapping("/employee/list")
-    public String getAllEmployees() {
-        // Это приватный эндпоинт
-        // (фактически защищается на уровне Gateway,
-        //  но можно и тут дополнительно проверять токен)
-        return "Employee list: [John, Alice, Bob]";
+    // GET http://localhost:8082/employees
+    @GetMapping
+    public List<Employee> getAllEmployees() {
+        return employeeRepo.findAll();
+    }
+
+    // POST http://localhost:8082/employees
+    // body: { "name":"John","position":"Developer" }
+    @PostMapping
+    public Employee createEmployee(@RequestBody Employee employee) {
+        return employeeRepo.save(employee);
     }
 }
