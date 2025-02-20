@@ -13,11 +13,18 @@ spring:
             - Path=/main/**
           # Фильтр можно указать прямо здесь (GatewayFilter),
           # но мы сделаем глобальный (GlobalFilter) на все маршруты
+        - id: auth-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/auth/**
 
 # Если Eureka (необязательно):
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    prefer-ip-address: true
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#  instance:
+#    prefer-ip-address: true
+logging:
+  level:
+    org.springframework.security: DEBUG

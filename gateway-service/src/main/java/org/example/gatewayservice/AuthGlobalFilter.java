@@ -5,6 +5,7 @@ import io.jsonwebtoken.SignatureException;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -15,11 +16,12 @@ import reactor.core.publisher.Mono;
 import java.util.Arrays;
 import java.util.List;
 
-@Component
-public class AuthGlobalFilter implements GlobalFilter, Ordered {
+//@Order(1)
+//@Component
+public class AuthGlobalFilter implements GlobalFilter {
 
     // Путь, куда отправляемся за токеном (или публичные пути)
-    private static final List<String> PUBLIC_PATHS = Arrays.asList("/auth/login", "/auth/register", "/public/hello");
+    private static final List<String> PUBLIC_PATHS = Arrays.asList("/auth/auth/login", "/auth/register", "/public/hello");
 
     // Условный секрет (должен быть одинаковый с Auth-сервисом, если мы валидируем локально)
     private static final String SECRET_KEY = "mySecretKey123";
@@ -78,10 +80,5 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             // Истёк срок действия или другие проблемы
             return false;
         }
-    }
-
-    @Override
-    public int getOrder() {
-        return 0;
     }
 }

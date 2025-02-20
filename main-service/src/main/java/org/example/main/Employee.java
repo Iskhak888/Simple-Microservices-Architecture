@@ -1,6 +1,8 @@
 package org.example.main;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "employees")
@@ -8,6 +10,8 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
+    @Setter
     private Long id;
 
     private String name;
@@ -20,6 +24,5 @@ public class Employee {
         this.position = position;
     }
 
-    // getters, setters
     // ...
 }
