@@ -21,7 +21,7 @@ import java.util.List;
 public class AuthGlobalFilter implements GlobalFilter {
 
     // Путь, куда отправляемся за токеном (или публичные пути)
-    private static final List<String> PUBLIC_PATHS = Arrays.asList("/auth/auth/login", "/auth/register", "/public/hello");
+    private static final List<String> PUBLIC_PATHS = Arrays.asList("/auth/login", "/auth/register", "/public/hello");
 
     // Условный секрет (должен быть одинаковый с Auth-сервисом, если мы валидируем локально)
     private static final String SECRET_KEY = "mySecretKey123";
