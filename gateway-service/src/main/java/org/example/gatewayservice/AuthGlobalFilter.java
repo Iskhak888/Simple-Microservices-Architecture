@@ -24,7 +24,7 @@ public class AuthGlobalFilter implements GlobalFilter {
     private static final List<String> PUBLIC_PATHS = Arrays.asList("/auth/login", "/auth/register", "/public/hello");
 
     // Условный секрет (должен быть одинаковый с Auth-сервисом, если мы валидируем локально)
-    private static final String SECRET_KEY = "mySecretKey123";
+    private static final String SECRET_KEY = "sR6+u3zA1M9shzJkGRjDmg+6nD7WQkxgMhpL0w==123456789987654321qwerasdf";
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {

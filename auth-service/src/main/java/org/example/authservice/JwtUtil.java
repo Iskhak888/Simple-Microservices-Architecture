@@ -9,9 +9,10 @@ import java.util.Date;
 @Service
 public class JwtUtil {
 
-    private static final String SECRET_KEY = "mySecretKey123"; // должен совпадать с Gateway
+    // Длина ключа >= 32 символов (256 бит), чтобы избежать WeakKeyException
+    private static final String SECRET_KEY = "sR6+u3zA1M9shzJkGRjDmg+6nD7WQkxgMhpL0w==123456789987654321qwerasdf";
 
-    // валидность токена, например 1 час
+    // Валидность токена, например, 1 час
     private static final long EXPIRATION_TIME_MS = 3600000;
 
     public String generateToken(String username) {
@@ -23,5 +24,5 @@ public class JwtUtil {
                 .compact();
     }
 
-    // нужно validateToken
+    // Можно добавить метод validateToken(...) при необходимости
 }
