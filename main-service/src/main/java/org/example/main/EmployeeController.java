@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employees")
+@RequestMapping("/main")
 public class EmployeeController {
 
     private final EmployeeRepository employeeRepo;
@@ -17,14 +17,14 @@ public class EmployeeController {
     }
 
     // GET http://localhost:8082/employees
-    @GetMapping
+    @GetMapping("/employees")
     public List<Employee> getAllEmployees() {
         return employeeRepo.findAll();
     }
 
     // POST http://localhost:8082/employees
     // body: { "name":"John","position":"Developer" }
-    @PostMapping
+    @PostMapping("/new")
     public Employee createEmployee(@RequestBody Employee employee) {
         return employeeRepo.save(employee);
     }
