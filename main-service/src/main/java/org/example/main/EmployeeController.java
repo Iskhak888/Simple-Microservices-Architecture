@@ -16,13 +16,13 @@ public class EmployeeController {
         this.employeeRepo = employeeRepo;
     }
 
-    // GET http://localhost:8082/employees
+    // GET http://localhost:8082/main/employees
     @GetMapping("/employees")
     public List<Employee> getAllEmployees() {
         return employeeRepo.findAll();
     }
 
-    // POST http://localhost:8082/employees
+    // POST http://localhost:8082/main/new
     // body: { "name":"John","position":"Developer" }
     @PostMapping("/new")
     public Employee createEmployee(@RequestBody Employee employee) {

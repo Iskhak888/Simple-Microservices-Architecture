@@ -67,7 +67,7 @@ public class SecurityConfig {
                 return;
             }
 
-            String token = authHeader.substring(7);
+            String token = authHeader.substring(7);//вырезаем префикс bearer
             try {
                 Claims claims = Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
                 // валидный токен

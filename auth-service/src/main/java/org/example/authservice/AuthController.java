@@ -16,7 +16,6 @@ public class AuthController {
     // @RestController уже возвращает JSON, так что @ResponseBody не нужен
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request) {
-        System.out.println("rabotaet");
         // 1) Проверяем логин/пароль (в примере — хардкод)
         if ("admin".equals(request.getUsername()) && "123".equals(request.getPassword())) {
             // 2) Генерируем токен
