@@ -2,21 +2,23 @@ server:
   port: 8080
 
 spring:
-  cloud:
-    gateway:
-      routes:
-        - id: main-service
-          # если без Eureka, то указываем адрес:
-          uri: http://localhost:8082
-          # если Eureka, то можно uri: lb://MAIN-SERVICE
-          predicates:
-            - Path=/main/**
-          # Фильтр можно указать прямо здесь (GatewayFilter),
-          # но мы сделаем глобальный (GlobalFilter) на все маршруты
-        - id: auth-service
-          uri: http://localhost:8081
-          predicates:
-            - Path=/auth/**
+  application:
+    name: gateway
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: main-service
+#          # если без Eureka, то указываем адрес:
+#          uri: http://localhost:8082
+#          # если Eureka, то можно uri: lb://MAIN-SERVICE
+#          predicates:
+#            - Path=/main/**
+#          # Фильтр можно указать прямо здесь (GatewayFilter),
+#          # но мы сделаем глобальный (GlobalFilter) на все маршруты
+#        - id: auth-service
+#          uri: http://localhost:8081
+#          predicates:
+#            - Path=/auth/**
 
 # Если Eureka (необязательно):
 #eureka:
@@ -28,3 +30,17 @@ spring:
 logging:
   level:
     org.springframework.security: DEBUG
+
+
+gateway:
+  server:
+    url: http://localhost:8080
+
+main:
+  server:
+    url: http://localhost:8082
+auth:
+  server:
+    url: http://localhost:8081
+
+

@@ -3,9 +3,13 @@ server:
 
 spring:
     datasource:
-        url: jdbc:postgresql://localhost:5432/iskhak_test
+#        akyptan
+        url: jdbc:postgresql://localhost:15432/ishak_test
+#        ishak
+#        url: jdbc:postgresql://localhost:5432/iskhak_test
         username: postgres
         password: postgres
+        driver-class-name: org.postgresql.Driver
     jpa:
         hibernate:
             ddl-auto: update

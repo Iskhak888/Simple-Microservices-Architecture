@@ -1,5 +1,13 @@
+
 server:
     port: 8081
+
+spring:
+  application:
+    name: auth
+
+
+#TODO:  how are you authenticating users? DB settings
 logging:
     level:
       org.springframework.security: DEBUG
